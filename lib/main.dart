@@ -8,6 +8,7 @@ import 'screens/settings_screen.dart';
 import 'models/joke.dart';
 import 'screens/main_screen.dart';
 import 'providers/theme_provider.dart';
+import 'screens/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,10 +34,11 @@ class JokesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ThemeProvider>(
       builder: (context, themeProvider, _) => MaterialApp(
-        title: 'Jokes App',
+        title: 'Unlimited Jokes',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
+          fontFamily: 'Roboto',
         ),
         darkTheme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
@@ -44,9 +46,10 @@ class JokesApp extends StatelessWidget {
             brightness: Brightness.dark,
           ),
           useMaterial3: true,
+          fontFamily: 'Roboto',
         ),
         themeMode: themeProvider.themeMode,
-        home: const MainScreen(),
+        home: const SplashScreen(),
       ),
     );
   }
